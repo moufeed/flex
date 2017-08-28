@@ -1,0 +1,27 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// The `align-self`  aligns flex items of the current flex line overriding the align-items value. If any of the flex item's cross-axis margin is set to auto, then align-self is ignored.
+/// #### Syntax :
+/// ```markup
+///    align-self(auto | flex-start | flex-end | center | baseline | stretch);
+/// ```
+/// @param {string} $align [auto] - Accepts 6 different values[auto | flex-start | flex-end | center | baseline | stretch]  
+/// @example scss - scss
+///  .foo{
+///         @include align-self(flex-end);
+///      }
+/// @example css - CSS
+///  .foo {
+///       -webkit-align-self: flex-end;
+///       -ms-flex-item-align: end;
+///       align-self: flex-end;
+///  }
+ @mixin align-self($align:auto){
+     $prefix : get-key($flex-prefixes,$align);
+     -webkit-align-self :$align;
+     -ms-flex-item-align : if($prefix,$prefix,$align);
+     align-self :$align;
+}

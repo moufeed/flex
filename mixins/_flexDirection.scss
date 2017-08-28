@@ -1,0 +1,39 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// The flex-direction  specifies how flex items are placed in the flex container defining the main axis and
+/// #### Syntax :
+/// ```markup
+///   flex-direction(row | row-reverse | column | column-reverse);
+/// ```
+/// @param {string} $direction [row] -  pecifies the direction of the flexible items
+/// @example scss - scss
+///  .foo{
+///       @include flex-direction(column-reverse);
+///      }
+/// @example css - CSS
+///  .foo {
+///    -webkit-box-orient: vertical;
+///    -webkit-box-direction: reverse;
+///    -webkit-flex-direction: column-reverse;
+///    -ms-flex-direction: column-reverse;
+///    flex-direction: column-reverse;
+///  }
+@mixin flex-direction($direction: row)
+{
+    @if $direction =='row' or $direction =='row-reverse' 
+    {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction:#{if($direction == 'row',normal,reverse)};
+    }
+    @else
+    {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction:#{if($direction == 'column',normal,reverse)};
+    }
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}

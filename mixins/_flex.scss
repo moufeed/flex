@@ -1,0 +1,33 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// flex is a `shorthand`  specifying the ability of a flex item to alter its dimensions to fill available space. Flex items can be stretched to use available space proportional to their flex grow factor or their flex shrink factor to prevent overflow.
+/// #### Syntax :
+/// ```markup
+///   flex(none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]);
+/// ```
+/// @param {number | string} $flex-grow   [0]    -  Defines the flex-grow of the flex item  
+/// @param {number} $flex-shrink [null] -  Defines the flex-shrink of the flex item  
+/// @param {number} $flex-basis  [null] -  Defines the flex-basis of the flex item. 
+/// @example scss - scss
+///  .foo{
+///        @include flex(2,2,10%);
+///      }
+/// @example css - CSS
+///  .foo {
+///       -webkit-box-flex: 2;
+///       -webkit-flex: 2 2 10%;
+///       -ms-flex: 2 2 10%;
+///       flex: 2 2 10%;
+///       }
+
+ @mixin flex($flex-grow :0,$flex-shrink:null,$flex-basis:null){
+  $flex-prefix : if($flex-grow == 'none', 0 , $flex-grow);
+  $flex-prefix : if($flex-grow == 'auto', 1 , $flex-prefix);
+     -webkit-box-flex: $flex-prefix;
+     -webkit-flex: $flex-grow $flex-shrink $flex-basis;
+     -ms-flex: $flex-grow $flex-shrink $flex-basis;
+     flex: $flex-grow $flex-shrink $flex-basis;
+}

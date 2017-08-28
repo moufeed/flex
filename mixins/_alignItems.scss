@@ -1,0 +1,33 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+
+/// align-items aligns flex items of the current flex line the same way as justify-content but in the perpendicular direction. of their container.
+/// #### Syntax :
+/// ```markup
+///    align-items(flex-start | flex-end | center | baseline | stretch);
+/// ```
+/// @param {string} $align [stretch] - accepts 5 different values[flex-start | flex-end | center | baseline | stretch]  
+/// @example scss - scss
+///  .foo{
+///        @include align-items(flex-end);
+///      }
+/// @example css - CSS
+///  .foo {
+///           -webkit-box-align: end;
+///           -webkit-align-items: flex-end;
+///           -ms-flex-align: end;
+///           align-items: flex-end;
+///  }
+@mixin align-items($align:stretch)
+{
+      $prefix : get-key($flex-prefixes ,$align);
+      -webkit-box-align: if($prefix,$prefix,$align);
+      -webkit-align-items: $align;
+      -ms-flex-align: if($prefix,$prefix,$align);
+      align-items: $align;
+}
+
+ 

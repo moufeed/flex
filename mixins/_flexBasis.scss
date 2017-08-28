@@ -1,0 +1,26 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+ 
+///   flex-basis CSS property specifies the flex basis which is the initial main size of a flex item. This property determines the size of the content-box unless specified otherwise using box-sizing.
+/// #### Syntax :
+/// ```markup
+///   flex-basis(content | <'width'>);
+/// ```
+/// @param {number} $basis [auto] - specifies the initial length of a flexible item. 
+/// @example scss - scss
+///  .foo{
+///        @includeflex-basis(10em);
+///      }
+/// @example css - CSS
+///  .foo {
+///      -webkit-flex-basis: 10em;
+///      -ms-flex-preferred-size: 10em;
+///      flex-basis: 10em;
+///  }
+@mixin flex-basis($basis: auto) {
+	-webkit-flex-basis: $basis;
+	-ms-flex-preferred-size: $basis;
+	flex-basis: $basis;
+}

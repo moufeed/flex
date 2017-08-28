@@ -1,0 +1,27 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+
+///  flex-shrink CSS property specifies the flex shrink factor of a flex item.
+/// #### Syntax :
+/// ```markup
+///   flex-shrink(<integer>);
+/// ```
+/// @param {number} $value [0] -<small> specifies how the item will shrink relative to the rest of the flexible items inside the same container.</small>
+/// @example scss - scss
+///  .foo{
+///        @include flex-shrink(2);
+///      }
+/// @example css - CSS
+///  .foo {
+///        -webkit-flex-shrink: 2;
+///            -ms-flex-negative: 2;
+///                flex-shrink: 2;
+///  }
+@mixin flex-shrink($int: 1) {
+	-webkit-flex-shrink: $int;
+	-ms-flex-negative: $int;
+	flex-shrink: $int;
+}

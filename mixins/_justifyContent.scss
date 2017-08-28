@@ -1,0 +1,30 @@
+﻿////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// justify-content defines how the browser distributes space between and around flex items along the main-axis of their container.
+/// #### Syntax :
+/// ```markup
+///   justify-content(flex-start | flex-end | center | space-between | space-around );
+/// ```
+/// @param {string} $justify [flex-start] - Accepts 5 Different values [flex-start | flex-end | center | space-between | space-around ]
+/// @example scss - scss
+///  .foo{
+///        @include  justify-content(space-between);
+///      }
+/// @example css - CSS
+///  .foo {
+///         -webkit-box-pack: justify;
+///         -webkit-justify-content: space-between;
+///         -ms-flex-pack: justify;
+///         justify-content: space-between;
+///  }
+ @mixin justify-content($justify: flex-start)
+ {
+     $prefix : get-key($flex-prefixes ,$justify);
+     -webkit-box-pack: if($prefix,$prefix,$justify);
+     -webkit-justify-content:$justify;
+     -ms-flex-pack: if($prefix,$prefix,$justify);
+     justify-content: $justify;
+ }

@@ -1,0 +1,28 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// the order property controls the order in which they appear in the flex container , by assigning them to ordinal groups.
+/// #### Syntax :
+/// ```markup
+///   order(<integer>);
+/// ```
+/// @param {number} $value [0] -  Specifies the order for the flexible item
+/// @example scss - scss
+///  .foo{
+///        @include order(2);
+///      }
+/// @example css - CSS
+///  .foo {
+///    -webkit-box-ordinal-group: 3;
+///    -webkit-order: 2;
+///    -ms-flex-order: 2;
+///    order: 2;
+///  }
+@mixin order($value: 0) {
+	-webkit-box-ordinal-group: $value + 1;
+    -webkit-order:$value;
+    -ms-flex-order:$value;
+    order:$value;
+}

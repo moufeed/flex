@@ -1,0 +1,27 @@
+////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// The CSS align-content property aligns a flex container's lines within the flex container when there is extra space on the cross-axis.
+/// #### Syntax :
+/// ```markup
+///   align-content(flex-start | flex-end | center | space-between | space-around | stretch);
+/// ```
+/// @param {string} $align [stretch] -accepts 6 different values[flex-start | flex-end | center | space-between | space-around | stretch]
+/// @example scss - scss
+///  .foo{
+///        @include align-content(flex-end);
+///      }
+/// @example css - CSS
+///  .foo {
+///        -webkit-align-content: flex-end;
+///        -ms-flex-line-pack: end;
+///        align-content: flex-end;
+///  }
+ @mixin align-content($align:stretch){
+      $prefix : get-key($flex-prefixes,$align);
+     -webkit-align-content: $align;
+     -ms-flex-line-pack: if($prefix,$flex-prefix,$align);
+     align-content: $align;
+}

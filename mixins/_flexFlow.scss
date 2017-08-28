@@ -1,0 +1,27 @@
+﻿////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+/// The flex-flow CSS property is a shorthand property for flex-direction and flex-wrap individual properties.
+/// #### Syntax :
+/// ```markup
+///   flex-flow( <'flex-direction'> || <'flex-wrap'>);
+/// ```
+/// @param {string} $values [row nowrap] - set the 'flex-direction' and 'flex-wrap' properties
+/// @example scss - scss
+///  .foo{
+///        @include flex-flow(row-reverse wrap);
+///      }
+/// @example css - CSS
+///  .foo {
+///      -webkit-flex-flow: row-reverse wrap;
+///      -ms-flex-flow: row-reverse wrap;
+///      flex-flow: row-reverse wrap;
+///  }
+@mixin flex-flow($argument: row nowrap) 
+{
+	-webkit-flex-flow: $argument;
+	-ms-flex-flow: $argument;
+	flex-flow: $argument;
+}

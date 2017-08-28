@@ -1,0 +1,28 @@
+﻿////
+/// @group Flexbox
+/// @since 1.0.0
+////
+
+
+/// flex-wrap property specifies whether flex items are forced into a single line or can be wrapped onto multiple lines.
+/// #### Syntax :
+/// ```markup
+///   flex-wrap(nowrap | wrap | wrap-reverse);
+/// ```
+/// @param {string} $value [wrap] -  specifies whether the flexible items should wrap or not.
+/// @example scss - scss
+///  .foo{
+///        @include flex-wrap(wrap-reverse);
+///      }
+/// @example css - CSS
+///  .foo {
+///      -webkit-flex-wrap: wrap-reverse;
+///      -ms-flex-wrap: wrap-reverse;
+///      flex-wrap: wrap-reverse;
+///  }
+@mixin flex-wrap($value: wrap) 
+{
+     -ms-flex-wrap: $value;
+	 -webkit-flex-wrap: $value;
+     flex-wrap: $value ;
+}
