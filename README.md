@@ -1,4 +1,4 @@
-# flex
+# flexbox
 small and easy to use flexbox mixins
 
 ## mixins
